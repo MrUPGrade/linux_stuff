@@ -35,4 +35,11 @@ Create the image
 
 ```bash
 vagrant package --base debian8
+mv package.box debian8.box
+```
+
+Add box to vagrant
+
+```bash
+vagrant box add --cert vagrant_rsa --provider virtualbox --name debian8 debian8.box
 ```
