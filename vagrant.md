@@ -24,7 +24,7 @@ apt-get upgrade
 apt-get install ssh
 ```
 
-Outside vm, on the host run:
+Outside vm, on the host run
 
 ```bash
 sh-keygen -t rsa -b 4096 -C "vagrant@debian8"

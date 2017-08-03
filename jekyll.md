@@ -25,4 +25,3 @@ export PATH=~/gems/bin:\${PATH}
 export GEM_PATH=~/gems/:\${GEM_PATH}
 EOF
 ```
-
