@@ -33,3 +33,10 @@ dpkg -i vagrant_1.9.5_x86_64.deb
 rm vagrant_1.9.5_x86_64.deb
 ```
 
+## Python setup
+
+Install packages needed for most python development
+
+```bash
+apt-get install -y python3-dev gcc libffi-dev
+```
