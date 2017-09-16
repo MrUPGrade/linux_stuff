@@ -1,5 +1,18 @@
 # Jenkins
 
+## Installing jenkins on ubuntu/debian
+
+From https://pkg.jenkins.io/debian-stable/
+
+```bash
+# as root
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | apt-key add -
+echo "deb https://pkg.jenkins.io/debian-stable binary/" > /etc/apt/sources.list.d/jenkins.list
+sudo apt-get update
+sudo apt-get -y install jenkins
+```
+
+
 ## Running jenkins in docker
 
 ```bash
