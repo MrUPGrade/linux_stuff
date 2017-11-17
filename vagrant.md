@@ -8,8 +8,8 @@ vagrant box add hashicorp/precise64
 ## Creating custom debian base image
 
 Create new VM in virtualbox.
-Create 12GB dynamic disk.
-Install debian8 from netinstall image - minimal installation:
+Create 50GB dynamic disk.
+Install debian9 from netinstall image - minimal installation:
  - empty root password
  - user - vagrant:vagrant
  
@@ -24,22 +24,38 @@ apt-get upgrade
 apt-get install ssh
 ```
 
+Edit */etc/ssh/sshd_config* file and ensure following lines:
+
+```
+PasswordAuthentication yes
+PermitEmptyPasswords no
+```
+
+For VMs that will be managed by ansible run:
+
+```
+apt-get install python python-apt
+```
+
+
 Outside vm, on the host run
 
 ```bash
-sh-keygen -t rsa -b 4096 -C "vagrant@debian8"
+ssh-keygen -t rsa -b 4096 -C "vagrant@debian9" -f vagrant_rsa -N ''
 ssh-copy-id -i vagrant_rsa vagrant@192.168.1.5
 ```
+
+
 
 Create the image
 
 ```bash
-vagrant package --base debian8
-mv package.box debian8.box
+vagrant package --base debian9
+mv package.box debian9.box
 ```
 
 Add box to vagrant
 
 ```bash
-vagrant box add --cert vagrant_rsa --provider virtualbox --name debian8 debian8.box
+vagrant box add --cert vagrant_rsa --provider virtualbox --name debian9 debian9.box
 ```
