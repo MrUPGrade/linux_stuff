@@ -20,6 +20,4 @@ EOF
 **Note on Mint**
 
 On Mint edit **/lib/systemd/system/docker.service** and remove -H fd://
- from the line stasring with ExecStart=/usr/bin/dockerd
-
-
+ from the line stasting with ExecStart=/usr/bin/dockerd
